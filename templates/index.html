@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Claim Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Insurance Claim Prediction</h1>
+
+        <!-- Scanner Section -->
+        <div class="card">
+            <h2 class="card-title">Auto-fill with License Scan</h2>
+            <div class="file-upload">
+                <input type="file" id="license-uploader" accept="image/*" class="file-upload-input">
+                <label for="license-uploader" class="file-upload-label">
+                    <svg class="file-upload-icon" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                    </svg>
+                    Choose License Image
+                </label>
+                <button id="scan-button" class="btn btn-secondary">Scan & Auto-fill</button>
+                <div id="scan-status"></div>
+            </div>
+        </div>
+
+        <!-- Prediction Form -->
+        <div class="card">
+            <h2 class="card-title">Driver Information</h2>
+            <form id="prediction-form" method="POST">
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <select id="age" name="AGE" class="form-control">
+                        <option value="16-25">16-25</option>
+                        <option value="26-39">26-39</option>
+                        <option value="40-64">40-64</option>
+                        <option value="65+">65+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="GENDER" class="form-control">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="driving-exp">Driving Experience:</label>
+                    <select id="driving-exp" name="DRIVING_EXPERIENCE" class="form-control">
+                        <option value="0-9y">0-9 years</option>
+                        <option value="10-19y">10-19 years</option>
+                        <option value="20-29y">20-29 years</option>
+                        <option value="30+ y">30+ years</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="education">Education:</label>
+                    <select id="education" name="EDUCATION" class="form-control">
+                        <option value="none">None</option>
+                        <option value="high school">High School</option>
+                        <option value="university">University</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="income">Income:</label>
+                    <select id="income" name="INCOME" class="form-control">
+                        <option value="poverty">Poverty</option>
+                        <option value="working class">Working Class</option>
+                        <option value="middle class">Middle Class</option>
+                        <option value="upper class">Upper Class</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle-ownership">Vehicle Ownership:</label>
+                    <select id="vehicle-ownership" name="VEHICLE_OWNERSHIP" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle-year">Vehicle Year:</label>
+                    <select id="vehicle-year" name="VEHICLE_YEAR" class="form-control">
+                        <option value="before 2015">Before 2015</option>
+                        <option value="after 2015">After 2015</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="married">Married:</label>
+                    <select id="married" name="MARRIED" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="children">Children:</label>
+                    <select id="children" name="CHILDREN" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="duis">DUIs (Driver under influence):</label>
+                    <select id="duis" name="DUIS" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="speeding-violations">Speeding Violations:</label>
+                    <input type="number" id="speeding-violations" name="SPEEDING_VIOLATIONS" min="0" value="0" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="past-accidents">Past Accidents:</label>
+                    <input type="number" id="past-accidents" name="PAST_ACCIDENTS" min="0" value="0" required class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Predict Claim Probability</button>
+            </form>
+        </div>
+
+        <!-- Prediction Result Section -->
+        <div class="card">
+            <h2 class="card-title">Prediction Result</h2>
+            <div id="result">
+                <p>Please fill out the form and click Predict.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

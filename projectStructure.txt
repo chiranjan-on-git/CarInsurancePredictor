@@ -1,0 +1,11 @@
+CARINSURANCEMODEL-MAIN/
+├── venv/
+├── static/
+│   └── css/
+│       └── style.css
+├── templates/
+│   └── index.html
+├── app.py
+├── model_creation.py         <-- We will create this
+├── car_insurance_claim_model.joblib  <-- This will be generated
+└── requirements.txt
