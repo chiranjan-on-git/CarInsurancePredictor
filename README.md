@@ -2,7 +2,10 @@
 
 This project is an end-to-end machine learning web application that predicts the likelihood of a car insurance claim based on driver and vehicle details. It features an interactive web interface built with Flask and includes an advanced driver's license scanning feature to automate data entry.
 
-<!-- You can replace this with a screenshot of your own app! -->
+<div style="display: flex; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/87812b40-7560-47e5-8bcc-317d742dae93" width="600" />
+  <img src="https://github.com/user-attachments/assets/a6346740-52e6-498f-87e7-9d0507ece78c" width="600" />
+</div>
 
 ## Key Features
 
